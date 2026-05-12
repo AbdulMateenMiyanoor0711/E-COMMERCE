@@ -1,23 +1,26 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Login from "./components/Login";
+import Registeration from "./components/Registeration";
+import Selleronboard from "./components/Selleronboard";
 const App = () => {
   return (
     <>
-   <div>
-    <h1>Please Login</h1>
-     <input type="text" placeholder="Please Enter Your Email Id"/>
-    <input type="password" placeholder="password"/>
-    <p>dont have account please register </p>
-    <BrowserRouter>
-    <Routes>
-      <Route>
-      </Route>
-    </Routes>
-    </BrowserRouter>
-    <button>login</button>
-   </div>
-    
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Registeration />} />
+            <Route path="/selleronboard" element={<Selleronboard />} />
+          </Routes>
+          <nav>
+            <Link to="/login">login</Link>
+            <Link to="/register">Register</Link>
+            <Link to="/selleronboard">Seller Onboard</Link>
+          </nav>
+        </BrowserRouter>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
