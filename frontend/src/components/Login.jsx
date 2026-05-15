@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+
 const Login = () => {
   const notify = () => {
     const email = document.querySelector("input[type='text']").value;
@@ -13,6 +14,8 @@ const Login = () => {
     } else {
       toast.success("Login Successfully");
     }
+    console.log("Login");
+    
   };
   return (
     <>
@@ -23,7 +26,7 @@ const Login = () => {
         <p>
           dont have account please <Link to="/register">Register </Link> here
         </p>
-
+          <Link> Forget Password ??  </Link>
         <button onClick={notify}>login</button>
       </div>
     </>

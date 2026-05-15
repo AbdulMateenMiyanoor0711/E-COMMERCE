@@ -14,11 +14,38 @@ router.get("/get-user", async (req, res) => {
     });
     console.log(data);
   } catch (error) {
-   res.status(500).send({
-     msg: "error",
-     error: error.message,
-   });
-   console.log("Error:", error.message, error);
+    res.status(500).send({
+      msg: "error",
+      error: error.message,
+    });
+    console.log("Error:", error.message, error);
+  }
+});
+
+router.post("/add-user", async (req, res) => {
+  try {
+    const { name, email, phone, password, role, account_status, created_at } =
+      req.body;
+    const data = await auth.addUser(
+      name,
+      email,
+      phone,
+      password,
+      role,
+      account_status,
+      created_at,
+    );
+    res.status(200).send({
+      data: data,
+      msg: "User added successfully",
+    });
+    console.log(data);
+  } catch (error) {
+    res.status(500).send({
+      msg: "Error adding user",
+      error: error.message,
+    });
+    console.log("Error:", error.message, error);
   }
 });
 
