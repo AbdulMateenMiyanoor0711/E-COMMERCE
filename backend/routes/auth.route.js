@@ -32,7 +32,7 @@ router.post("/add-user", async (req, res) => {
       phone,
       password,
       role,
-      account_status,
+      account_status || "inactive",
       created_at,
     );
     res.status(200).send({
